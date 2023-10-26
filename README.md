@@ -1,2 +1,2 @@
-# Problems solutions from leetcode
-https://leetcode.com/ 
+# leetcode
+Problems solutions from https://leetcode.com/ 
