@@ -10,10 +10,11 @@ To accommodate this, nums1 has a length of m + n,
 where the first m elements denote the elements that should be merged, 
 and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
 
-`
+```
 Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 Output: [1,2,2,3,5,6]
 Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
-Follow up: Can you come up with an algorithm that runs in O(m + n) time?`
+Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+```

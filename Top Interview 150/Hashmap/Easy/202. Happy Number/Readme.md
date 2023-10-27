@@ -10,7 +10,7 @@ Those numbers for which this process ends in 1 are happy.
 Return true if n is a happy number, and false if not.
 
  
-
+```
 Example 1:
 
 Input: n = 19
@@ -20,6 +20,8 @@ Explanation:
 8**2 + 2**2 = 68
 6**2 + 8**2 = 100
 1**2 + 0**2 + 0**2 = 1
+
+
 Example 2:
 
 Input: n = 2
@@ -29,3 +31,4 @@ Output: false
 Constraints:
 
 1 <= n <= 2e31 - 1
+```

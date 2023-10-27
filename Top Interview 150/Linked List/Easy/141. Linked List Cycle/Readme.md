@@ -7,7 +7,7 @@ Internally, pos is used to denote the index of the node that tail's next pointer
 Note that pos is not passed as a parameter.
 
 Return true if there is a cycle in the linked list. Otherwise, return false.
-
+```
 Example 1:
 
 ![1](img1.png)
@@ -36,13 +36,13 @@ Explanation: There is no cycle in the linked list.
 Constraints:
 
 The number of the nodes in the list is in the range [0, 10e4]. <br>
-`-10e5 <= Node.val <= 10e5` <br>
+-10e5 <= Node.val <= 10e5 <br>
 pos is -1 or a valid index in the linked-list.
 
 
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
 
-
+```
 ## O(1) space solution.
 ### Turtle and rabbit approach.
 
