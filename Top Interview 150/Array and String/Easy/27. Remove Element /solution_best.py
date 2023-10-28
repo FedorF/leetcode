@@ -3,11 +3,12 @@ from typing import List
 
 def remove_element(target: int, xs: List[int]) -> int:
     """
-    O(N) time
-    Constant space
-
     Track the free position index and place element on it if it doesn't equal to target.
     At the same time that index would be a number of elements not equal to target.
+
+    Time complexity: O(N)
+    Space complexity: O(1)
+
     """
     free_pos = 0
     for i, x in enumerate(xs):

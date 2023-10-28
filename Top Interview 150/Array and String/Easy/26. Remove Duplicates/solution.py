@@ -3,12 +3,14 @@ from typing import List
 
 def remove_duplicates(xs: List[int]) -> int:
     """
-    Linear time and constant space.
-    We have to track elements that are already seemed in xs. So, let's make duplicated elements set.
+    Let's track elements that are already seemed in xs. So, let's make duplicated elements set.
+
+    Time complexity: O(N)
+    Space complexity: O(N)
     """
     seen = set()
     free_pos = 0
-    for i, x in enumerate(xs):
+    for x in xs:
         if x not in seen:
             seen.add(x)
             xs[free_pos] = x

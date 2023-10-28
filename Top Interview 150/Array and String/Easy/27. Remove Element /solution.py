@@ -4,9 +4,11 @@ from typing import List
 
 def remove_element(y: int, xs: List[int]) -> int:
     """
-    O(N) time complexity.
-    Extra space solution. Let's make stash list with indexes that we should swap.
+    Let's make stash list with indexes that we should swap.
     Using deque because popleft has constant time. Otherwise, if using list.pop(0), would linear time.
+
+    O(N) time complexity
+    O(N) space complexity
     """
     stash, k = deque(), 0
     for i, x in enumerate(xs):

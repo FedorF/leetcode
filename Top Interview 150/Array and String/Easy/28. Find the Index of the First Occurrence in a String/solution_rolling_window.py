@@ -5,10 +5,10 @@ def find_first_occurrence(needle: str, haystack: str) -> int:
     """
     n = len(haystack)
     m = len(needle)
-    for i in range(n-m+1):
+    for i in range(n - m + 1):
         flag = False
         for j in range(m):
-            if needle[j] != haystack[i+j]:
+            if needle[j] != haystack[i + j]:
                 flag = False
                 break
             else:

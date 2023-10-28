@@ -23,7 +23,7 @@ if __name__ == '__main__':
     xs = ["flower", "flow", "flight"]
     assert find_longest_common_prefix(xs) == 'fl'
 
-    xs = ["dog","racecar","car"]
+    xs = ["dog", "racecar", "car"]
     assert find_longest_common_prefix(xs) == ''
 
     xs = ["dog"]
