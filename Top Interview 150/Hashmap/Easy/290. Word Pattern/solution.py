@@ -1,8 +1,8 @@
 def is_pattern(pattern: str, sentence: str) -> bool:
     """
     Solution with additional zero step: split sentence to words.
-    Time complexity: O(2*N)
-    Space complexity: O(3*N)
+    Time complexity: O(N)
+    Space complexity: O(N)
     """
 
     sentence = sentence.split()

@@ -1,6 +1,6 @@
 def check_palindrome(s: str) -> bool:
     """
-    Time complexity: O(n) + O(n) + O(n)
+    Time complexity: O(n)
     Space complexity: O(n)
     """
     s = ''.join(filter(lambda x: x.isalnum(), s.lower()))

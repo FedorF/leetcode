@@ -10,20 +10,20 @@ def find_ranges(nums: List[int]) -> List[str]:
     """
 
     ranges = []
-    start = i = 0
+    interval_start = i = 0
     while i < len(nums):
         if i == len(nums) - 1:
-            if i == start:
+            if i == interval_start:
                 ranges.append(f"{nums[i]}")
             else:
-                ranges.append(f"{nums[start]}->{nums[i]}")
+                ranges.append(f"{nums[interval_start]}->{nums[i]}")
         else:
             if nums[i+1] - nums[i] > 1:
-                if i == start:
+                if i == interval_start:
                     ranges.append(f"{nums[i]}")
                 else:
-                    ranges.append(f"{nums[start]}->{nums[i]}")
-                start = i+1
+                    ranges.append(f"{nums[interval_start]}->{nums[i]}")
+                interval_start = i+1
         i += 1
     return ranges
 

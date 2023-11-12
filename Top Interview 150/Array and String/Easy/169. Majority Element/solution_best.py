@@ -5,7 +5,7 @@ def find_major_element(xs: List[int]) -> int:
     """
     Moore Voting Algorithm
     Constant space and Linear time
-    The intuition behind the Moore's Voting Algorithm is based on the fact that if there is a majority element in an
+    The intuition behind the Moore's Voting Algorithm is based on the fact that if there is a majority element in
     the array, it will always remain in the lead, even after encountering other elements.
     """
     cnt = major = 0

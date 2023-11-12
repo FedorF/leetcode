@@ -3,7 +3,7 @@ from typing import List
 
 def remove_duplicates(xs: List[int]) -> int:
     """
-    We should update the vacant position pointer every step, except when current counter > 2
+    Update the vacant position pointer at an every step, except when current counter > 2
     Function should return number of element in list after transformation, not a number of unique elements!
 
     Time: O(n)

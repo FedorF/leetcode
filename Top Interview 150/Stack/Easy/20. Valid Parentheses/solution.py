@@ -1,7 +1,7 @@
 def is_valid(parentheses: str):
     """
-    Let's keep track of already seen elements. On each step add element to history if it's an opening parentheses.
-    and remove last added item if current element is closing one.
+    Let's keep track of already seen elements. On each step add element to history, if it's an opening parentheses.
+    Remove last added item, if current element is a closing one.
 
     Time complexity: O(n)
     Space complexity: O(n)

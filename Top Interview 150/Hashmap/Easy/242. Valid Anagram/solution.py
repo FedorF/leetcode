@@ -1,6 +1,6 @@
 def is_anagram(s: str, t: str) -> bool:
     """
-    O(max(N,M))
+    O(max(N, M))
     """
     if len(s) != len(t):
         return False

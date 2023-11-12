@@ -3,7 +3,7 @@ from typing import List
 
 def merge_sorted_lists(xs: List[int], ys: List[int], m: int, n: int) -> List[int]:
     """
-    Brute force solution O(2*(m+n)) and extra space.
+    Brute force solution O(m+n) and extra space.
     Create additional list
     """
     buffer = xs[:m]

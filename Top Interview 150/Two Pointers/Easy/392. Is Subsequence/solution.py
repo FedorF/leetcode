@@ -1,7 +1,9 @@
 def is_subseq(s: str, t: str) -> bool:
     """
+    Two pointers approach: one for subseq, second one for the string itself.
+
     Brute Force solution: O(len(t)).
-    Use two pointers: one for subseq, second one for the string.
+
     """
     if len(s) > len(t):
         return False

@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class ListNode:
     def __init__(self, x, next=None):
         self.val = x
@@ -19,8 +20,8 @@ class ListNode:
 
 def has_cycle(head: Optional[ListNode]) -> bool:
     """
-    Turtle and rabbit solution: define two pointers slow and fast.
-    If there is a loop, pointers will meet at some point.
+    Turtle and rabbit approach: define two pointers slow and fast.
+    If there is a loop, pointers would meet each other at some point.
 
     Time Complexity: O(N)
     Space Complexity: O(1)

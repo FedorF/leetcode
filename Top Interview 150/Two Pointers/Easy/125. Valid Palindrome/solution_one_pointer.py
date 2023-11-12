@@ -1,7 +1,8 @@
 def check_palindrome(s: str) -> bool:
     """
-    One pointer.
-    Time complexity: O(n) + O(n/2)
+    One pointer approach.
+
+    Time complexity: O(n)
     Space complexity: O(n)
     """
     s = [x for x in s.lower() if x.isalnum()]

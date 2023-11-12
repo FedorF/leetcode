@@ -1,6 +1,7 @@
 def check_palindrome(s: str) -> bool:
     """
-    Two pointers solution.
+    Two pointers approach.
+
     Time complexity: O(n)
     Space complexity: O(1)
     """
