@@ -2,7 +2,7 @@
 Given n non-negative integers representing an elevation map where the width of each bar is 1, 
 compute how much water it can trap after raining.
 
-![1](img.png)
+![1](im1.png)
 ```
 Example 1:
 
@@ -29,7 +29,7 @@ n == height.length
 
 ## Solution 1
 Fill lists with max_left and max_right
-![2](solution.png)
+![2](im2.png)
 
 ## Solution 2
-![3](solution2.png)
+![3](im3.png)
