@@ -14,7 +14,7 @@ def calc_trap_volume(height: List[int]) -> int:
         return 0
 
     max_left, max_right = height[0], height[-1]
-    left, right = 1, len(height)-2
+    left, right = 1, len(height) - 2
     total_volume = 0
     while left <= right:
         if max_left <= max_right:
@@ -39,4 +39,3 @@ if __name__ == '__main__':
     assert calc_trap_volume([50, 0, 100]) == 50
     assert calc_trap_volume([50, 0, 100, 100, 40, 50]) == 60
     assert calc_trap_volume([10, 10, 10, 10]) == 0
-
