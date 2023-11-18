@@ -1,10 +1,10 @@
 def find_last_word_len(s: str) -> int:
     """
-    Time complexity:
-        len(s) = O(1)
+    Time complexity: O(N).
+    Because:
         s.split() = O(N)
         xs[-1] = O(1)
-    Resulting in O(N).
+        len(s) = O(1)
     """
     return len(s.split()[-1])
 
