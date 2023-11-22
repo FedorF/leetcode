@@ -53,10 +53,10 @@ def justify_last_line(text: List[str], width: int) -> str:
 
 def justify_full(text: List[str], width: int) -> List[str]:
     """
-    Brute algorithm
+    Divide and conquer approach. Divide problem into 2 sub-problems: making lines and justifying each line.
 
-    Time complexity: O(N^2)
-    Space complexity: O(N)
+    Time complexity: O(n*m)
+    Space complexity: O(n)
     """
     line_width = 0
     lines = []
@@ -121,4 +121,3 @@ if __name__ == '__main__':
         "do                  "
     ]
     assert justify_full(text, width) == expected
-
