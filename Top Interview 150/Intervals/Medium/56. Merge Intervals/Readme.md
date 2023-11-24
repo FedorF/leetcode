@@ -24,3 +24,6 @@ Constraints:
 intervals[i].length == 2
 0 <= starti <= endi <= 10e4
 ```
+
+## Solution
+![](im1.png)
