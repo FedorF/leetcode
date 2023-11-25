@@ -9,7 +9,6 @@ of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting
 
 Given the array points, return the minimum number of arrows that must be shot to burst all balloons.
 
-![](im1.png)
 ```
 Example 1:
 
@@ -43,3 +42,6 @@ points[i].length == 2
 -2e31 <= xstart < xend <= 2e31 - 1
 
 ```
+
+## Solution.
+![](im1.png)
