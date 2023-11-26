@@ -1,4 +1,10 @@
 def merge_str(word1: str, word2: str) -> str:
+    """
+    Firstly add chars one after another; then fill rest chars.
+
+    Time complexity: O(m+n)
+    Space complexity: O(m+n)
+    """
     last_ind = 0
     result = ""
     for a, b in zip(word1, word2):
