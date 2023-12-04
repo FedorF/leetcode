@@ -27,8 +27,10 @@ def find_combinations(n: int, k: int) -> List[List[int]]:
     return comb
 
 
+## todo!
+
+
 if __name__ == '__main__':
     print(find_combinations(n=4, k=2))
     # assert find_combinations(n=4, k=2) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
     # assert find_combinations(n=1, k=1) == [[1]]
-
