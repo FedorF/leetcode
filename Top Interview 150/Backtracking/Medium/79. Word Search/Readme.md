@@ -6,6 +6,7 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 
  
 Example 1:
+
 ![img.png](img.png)
 
 ```
@@ -14,6 +15,7 @@ Output: true
 ```
 
 Example 2:
+
 ![img_1.png](img_1.png)
 
 ```
@@ -22,6 +24,7 @@ Output: true
 ```
 
 Example 3:
+
 ![img_2.png](img_2.png)
 
 ```
@@ -40,3 +43,7 @@ board and word consists of only lowercase and uppercase English letters.
 
 Follow up: Could you use search pruning to make your solution faster with a larger board?
 ```
+
+## Solution
+
+![img_3.png](img_3.png)

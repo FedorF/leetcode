@@ -38,3 +38,8 @@ Constraints:
 All elements of candidates are distinct.
 1 <= target <= 40
 ```
+
+## Solution
+Search tree :
+
+![](im1.png)

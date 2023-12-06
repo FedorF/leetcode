@@ -16,13 +16,14 @@ def find_combination_sum(candidates: List[int], target: int) -> List[List[int]]:
         if total == target:
             res.append(comb[:])
             return
+
         if i >= len(candidates) or total > target:
             return
 
         comb.append(candidates[i])
-        backtrack(i, total + candidates[i], comb)  # left branch
+        backtrack(i, total + candidates[i], comb)  # run left branch
         comb.pop()
-        backtrack(i + 1, total, comb)  # right branch
+        backtrack(i + 1, total, comb)  # run right branch
 
     backtrack(0, 0, [])
     return res

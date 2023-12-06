@@ -17,11 +17,12 @@ def generate_parentheses(k: int) -> List[str]:
             return
         if (len(comb) == k * 2) and (cnt_open == cnt_close):
             res.append("".join(comb))
+
         comb.append("(")
-        backtrack(comb, cnt_open + 1, cnt_close)
+        backtrack(comb, cnt_open + 1, cnt_close)  # run left branch
         comb.pop()
         comb.append(")")
-        backtrack(comb, cnt_open, cnt_close + 1)
+        backtrack(comb, cnt_open, cnt_close + 1)  # run right branch
         comb.pop()
 
     backtrack([], 0, 0)

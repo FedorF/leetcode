@@ -16,8 +16,8 @@ def generate_parentheses(k: int) -> List[str]:
             return
         if (len(s) == k * 2) and (cnt_open == cnt_close):
             res.append(s)
-        backtrack(s + "(", cnt_open + 1, cnt_close)
-        backtrack(s + ")", cnt_open, cnt_close + 1)
+        backtrack(s + "(", cnt_open + 1, cnt_close)  # run left branch
+        backtrack(s + ")", cnt_open, cnt_close + 1)  # run right branch
 
     backtrack("", 0, 0)
     return res

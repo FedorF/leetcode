@@ -19,3 +19,7 @@ Constraints:
 
 1 <= n <= 8
 ```
+
+## Solution
+
+![img.png](img.png)
