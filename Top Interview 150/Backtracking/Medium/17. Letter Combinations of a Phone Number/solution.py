@@ -45,12 +45,12 @@ def find_letter_combinations(digits: str) -> List[str]:
     if len(digits) == 0:
         return []
 
-    def loop(digits: str) -> List[str]:
+    def backtrack(digits: str) -> List[str]:
         if len(digits) == 1:
             return keyboard[digits[0]]
-        return find_combinations(keyboard[digits[0]], loop(digits[1:]))
+        return find_combinations(keyboard[digits[0]], backtrack(digits[1:]))
 
-    return loop(digits)
+    return backtrack(digits)
 
 
 if __name__ == '__main__':

@@ -2,6 +2,14 @@ from typing import List
 
 
 def find_permutations(xs: List[int]) -> List[List[int]]:
+    """
+    Iterate through all the elements, place current at the beginning, and shuffle rest elements recursively.
+    Number of permutations of n elements equals to factorial.
+
+    Time complexity: O(n!)
+    Space complexity: O(n!)
+
+    """
     if len(xs) == 1:
         return [xs]
 

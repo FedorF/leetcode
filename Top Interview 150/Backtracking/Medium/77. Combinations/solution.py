@@ -1,36 +1,33 @@
 from typing import List
 
 
-def find_comb_with_new_value(val: int, combinations: List[List[int]]):
+def find_combinations_in_range(n: int, k: int) -> List[List[int]]:
     """
-    Add combinations of existing set and new value.
-    Doesn't return anything, instead do it inplace.
+    At each step we're picking elements from elements that are greater than current.
+    We'll stop picking process and add current combination to result if len(comb) == k
 
+
+    Time complexity: O(k*C(n,k))
+    Space complexity: O(k*C(n,k))
+
+    where C(n,k) = n!/(n-k)!/k! is a number of combinations
+    and k is operation of coping list of length k
     """
-    k = len(combinations[0])
-    for i in range(len(combinations)):
-        for j in range(k):
-            xs = combinations[i][:]
-            xs[j] = val
-            combinations.append(xs)
+    res = []
 
+    def backtrack(start: int, comb: List[int]):
+        if len(comb) == k:
+            res.append(comb[:])
+        else:
+            for i in range(start, n + 1):
+                comb.append(i)
+                backtrack(i + 1, comb)
+                comb.pop()
 
-def find_combinations(n: int, k: int) -> List[List[int]]:
-    if n == k:
-        return [(list(range(n)))]
-    comb = [[i for i in range(1, k + 1)]]
-    print(comb)
-    for val in range(k + 1, n + 1):
-        find_comb_with_new_value(val, comb)
-        print(val, comb)
-
-    return comb
-
-
-## todo!
+    backtrack(1, [])
+    return res
 
 
 if __name__ == '__main__':
-    print(find_combinations(n=4, k=2))
-    # assert find_combinations(n=4, k=2) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-    # assert find_combinations(n=1, k=1) == [[1]]
+    assert find_combinations_in_range(n=4, k=2) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+    assert find_combinations_in_range(n=1, k=1) == [[1]]
