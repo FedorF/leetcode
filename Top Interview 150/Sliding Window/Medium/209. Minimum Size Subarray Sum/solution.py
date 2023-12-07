@@ -4,6 +4,7 @@ from typing import List
 def calc_min_size_sublist(target: int, nums: List[int]) -> int:
     """
     Sliding window approach. Keep track on two pointers: left and right border of sub-array.
+    See Readme.md for more detailed explanation.
     This is a linear time complexity, because both pointers linearly iterates across the list, so complexity would be
     O(2*n) ~ O(n)
 

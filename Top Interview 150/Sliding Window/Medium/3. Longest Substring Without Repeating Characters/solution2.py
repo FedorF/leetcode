@@ -2,7 +2,6 @@ def calc_max_size_distinct_letters_substr(s: str) -> int:
     """
     Let's keep track indexes of elements that we've already seen. We'll move pointer and check if we've already seen
     current element. If so, update position.
-    In this approach we don't have to update dictionary.
 
 
     index_    0    1    2    3   4   5   6   7
