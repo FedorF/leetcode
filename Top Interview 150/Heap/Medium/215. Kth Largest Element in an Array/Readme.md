@@ -22,3 +22,6 @@ Constraints:
 1 <= k <= nums.length <= 10e5
 -10e4 <= nums[i] <= 10e4
 ```
+## Solution
+No sorting:
+![img.png](img.png)
