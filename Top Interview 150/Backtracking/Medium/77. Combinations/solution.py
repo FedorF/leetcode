@@ -15,16 +15,16 @@ def find_combinations_in_range(n: int, k: int) -> List[List[int]]:
     """
     res = []
 
-    def backtrack(start: int, comb: List[int]):
+    def backtrack(comb: List[int], start: int = 1):
         if len(comb) == k:
             res.append(comb[:])
         else:
             for i in range(start, n + 1):
                 comb.append(i)
-                backtrack(i + 1, comb)
+                backtrack(comb, i + 1)
                 comb.pop()
 
-    backtrack(1, [])
+    backtrack([])
     return res
 
 

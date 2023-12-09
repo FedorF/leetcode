@@ -23,5 +23,8 @@ Constraints:
 -10e4 <= nums[i] <= 10e4
 ```
 ## Solution
-No sorting:
-![img.png](img.png)
+Quickselect approach:
+![img.png](im_1.png)
+
+Time complexity comparing with Quicksort:
+![im_2.png](im_2.png)

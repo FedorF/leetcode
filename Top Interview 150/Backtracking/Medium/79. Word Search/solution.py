@@ -45,7 +45,7 @@ def check_word(board: List[List[str]], word: str) -> bool:
             if (candidate not in seen) and start_search(word[1:], candidate, seen):
                 return True
 
-        seen.remove(start)  # backtracking. Remove current element from history
+        seen.remove(start)  # backtracking: remove current element from history
         return False
 
     for row in range(n_rows):

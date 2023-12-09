@@ -3,12 +3,12 @@ from typing import List
 
 def find_k_largest(xs: List[int], k: int) -> int:
     """
-    Use QuickSort approach. split xs into partitions: less, equal, and greater than pivot element.
+    Use QuickSort based approach. Split xs into partitions: less, equal, and greater than pivot element.
     Then, based on lengths of partitions and current k, pick certain partition and recursively run algo.
 
     Look at Readme.md for tree.
 
-    Time complexity: O(n*log(n))
+    Time complexity: O(n)
     Space complexity: O(n)
     """
 
@@ -33,13 +33,13 @@ def find_k_largest(xs: List[int], k: int) -> int:
         if kth == 1:  # edge case
             return greatest
 
-        if kth <= len(greater):  # search kth in the "greater" partition
+        if kth <= len(greater):  # search k-th in the "greater" partition
             return search(greater, kth)
 
-        if kth > len(equal) + len(greater):  # search kth in "less" partition
+        if kth > len(equal) + len(greater):  # search k-th in "less" partition
             return search(less, kth - len(equal) - len(greater))
 
-        return equal[0]  # search kth in "equal" partition
+        return equal[0]  # search k-th in "equal" partition
 
     return search(xs, k)
 

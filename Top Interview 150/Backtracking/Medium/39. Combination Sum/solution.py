@@ -12,7 +12,7 @@ def find_combination_sum(candidates: List[int], target: int) -> List[List[int]]:
     """
     res = []
 
-    def backtrack(i, total, comb):
+    def backtrack(comb: List[int], i: int = 0, total: int = 0):
         if total == target:
             res.append(comb[:])
             return
@@ -21,11 +21,11 @@ def find_combination_sum(candidates: List[int], target: int) -> List[List[int]]:
             return
 
         comb.append(candidates[i])
-        backtrack(i, total + candidates[i], comb)  # run left branch
+        backtrack(comb, i, total + candidates[i])  # run left branch
         comb.pop()
-        backtrack(i + 1, total, comb)  # run right branch
+        backtrack(comb, i + 1, total)  # run right branch
 
-    backtrack(0, 0, [])
+    backtrack([])
     return res
 
 

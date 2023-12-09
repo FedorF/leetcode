@@ -7,12 +7,12 @@ def generate_parentheses(k: int) -> List[str]:
     branch and ) for  the  right. If closing counter is greater than opening then backtrack.
     We append a combination to result if counters are equals, and we have reached necessary length.
 
-    Time complexity: O(2^k*k) ???
+    Time complexity: O(k*2^k) ???
     Space complexity: O(k)
     """
     res = []
 
-    def backtrack(comb: List[str], cnt_open: int, cnt_close: int):
+    def backtrack(comb: List[str], cnt_open: int = 0, cnt_close: int = 0):
         if (cnt_open > k) or (cnt_close > k) or (cnt_open < cnt_close):
             return
         if (len(comb) == k * 2) and (cnt_open == cnt_close):
@@ -25,7 +25,7 @@ def generate_parentheses(k: int) -> List[str]:
         backtrack(comb, cnt_open, cnt_close + 1)  # run right branch
         comb.pop()
 
-    backtrack([], 0, 0)
+    backtrack([])
     return res
 
 
