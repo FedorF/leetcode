@@ -1,6 +1,6 @@
 def count_routes(n: int) -> int:
     """
-    Memoization (caching) approach.
+    DFS with Memoization (caching) approach.
     Start with 0 step. At each step check two routes: with 1 step and 2 steps and cache result of computation to reuse
     it later during next steps.
 
@@ -9,7 +9,7 @@ def count_routes(n: int) -> int:
     """
     cache = {}
 
-    def backtrack(cur_step: int = 0, routes: int = 0) -> int:
+    def dfs(cur_step: int = 0, routes: int = 0) -> int:
         if cur_step in cache:
             return routes + cache[cur_step]
 
@@ -19,10 +19,10 @@ def count_routes(n: int) -> int:
         if cur_step > n:
             return routes
 
-        cache[cur_step] = routes + backtrack(cur_step + 1, routes) + backtrack(cur_step + 2, routes)
+        cache[cur_step] = routes + dfs(cur_step + 1, routes) + dfs(cur_step + 2, routes)
         return cache[cur_step]
 
-    return backtrack()
+    return dfs()
 
 
 if __name__ == '__main__':

@@ -25,3 +25,11 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 400
 ```
+
+## Memoization approach
+
+![img.png](img.png)
+
+## Dynamic programming approach
+
+![img_1.png](img_1.png)

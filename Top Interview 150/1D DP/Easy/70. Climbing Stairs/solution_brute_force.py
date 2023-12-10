@@ -1,6 +1,6 @@
 def count_routes(n: int) -> int:
     """
-    Brute Force approach.
+    Brute Force approach: depth-first-search.
     Start with 0 step. At each step check two routes: +1 step or +2 steps.
 
     Time complexity: O(2^n)
@@ -9,7 +9,7 @@ def count_routes(n: int) -> int:
     !!!Raises "Time Limit Exceeded" on leetcode.
     """
 
-    def backtrack(cur_step: int = 0):
+    def dfs(cur_step: int = 0):
         nonlocal res  # use nonlocal in order to reach variable from enclosing (non-local) scope (outer function)
 
         if cur_step == n:
@@ -19,11 +19,11 @@ def count_routes(n: int) -> int:
         if cur_step > n:
             return
 
-        backtrack(cur_step + 1)
-        backtrack(cur_step + 2)
+        dfs(cur_step + 1)
+        dfs(cur_step + 2)
 
     res = 0
-    backtrack()
+    dfs()
     return res
 
 
