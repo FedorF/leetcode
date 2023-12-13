@@ -39,3 +39,8 @@ All the strings of wordDict are unique.
 ## DFS with Memoization approach.
 
 ![img.png](img.png)
+
+
+## DP approach
+
+![img_1.png](img_1.png)

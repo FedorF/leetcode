@@ -3,18 +3,22 @@ from typing import List
 
 def can_break(s: str, words: List[str]) -> bool:
     """
-    DP Approach.
+    DP Approach. Check Readme.md
 
+    Time complexity: O(len(s) * len(words))
+    Space complexity: O(len(s))
 
-    Time complexity: O()
-    Space complexity: O()
-
-    where n is the length of s
-    m is the maximum length of a word in the dictionary
-    k is the total number of characters in all words in the dictionary
     """
-    # todo!
-    pass
+    dp = [False] * len(s)
+    dp.append(True)  # base case
+
+    for i in range(len(s) - 1, -1, -1):  # iterate through all letters
+        for word in words:  # match every word from dict
+            if (i + len(word) <= len(s)) and (s[i:i + len(word)] == word):  # if we have enough letters and it's a match
+                dp[i] = True and dp[i + len(word)]  # it's a match, but we also have to check if i + len(word) is ...
+                if dp[i]:  # also a match
+                    break  # we don't have to check rest words in dict
+    return dp[0]
 
 
 if __name__ == '__main__':

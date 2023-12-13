@@ -7,12 +7,9 @@ def can_break(s: str, words: List[str]) -> bool:
     Iterate through all the letters, and if word is found, there are two ways: continue, or run new search
     starting with next letter. Cache intermediate search.
 
-    Time complexity: O(n * m + k)
-    Space complexity: O(n + k)
+    Time complexity: O(len(s)^2)
+    Space complexity: O(len(s)^2)
 
-    where n is the length of s
-    m is the maximum length of a word in the dictionary
-    k is the total number of characters in all words in the dictionary
     """
     words = set(words)
     cache = {}
