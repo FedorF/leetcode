@@ -5,7 +5,7 @@ def find_longest_incr_subseq_len(nums: List[int]) -> int:
     """
     DP (bottom-up) approach.
 
-    1) Start with last element. How many incr.subseq? Just 1, so dp[-1] = 1
+    1) Start with last element. How many incr. subseq? Just 1, so dp[-1] = 1
     2) At each step iterate through all following elements, and if this element is greater, add current to this subseq
     and check if it's the longest one for current step.
 
