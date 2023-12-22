@@ -26,3 +26,7 @@ Constraints:
 1 <= prices.length <= 1000
 0 <= prices[i] <= 1000
 ```
+
+## Why this is complicated? :)
+
+![img.png](img.png)
