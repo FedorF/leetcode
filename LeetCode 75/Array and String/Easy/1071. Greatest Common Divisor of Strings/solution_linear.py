@@ -26,7 +26,7 @@ def find_greatest_common_divisor(x: str, y: str) -> str:
     Space complexity: O(1)
 
     """
-    if x + y == y + x:  # check if there is a GCD
+    if x + y == y + x:  # check if GCD exists
         return x[:calc_gcd(len(x), len(y))]  # we can use math.gcd() instead
 
     return ""
