@@ -1,26 +1,32 @@
 from typing import List
 
 
-def find_max_volume(height: List[int]) -> int:
+def find_max_area(height: List[int]) -> int:
     """
-    Calculate volume at each step and update max_volume if needed. Move pointer toward greater wall.
+    Calculate area at each step and update max_area if needed. Move pointer toward greater wall.
+
 
     Time complexity: O(N)
     Space complexity: O(1)
+
     """
-    max_volume = 0
-    left, right = 0, len(height)-1
+    max_area = 0
+    left, right = 0, len(height) - 1
     while left < right:
-        volume = (right - left) * min(height[left], height[right])  # calculate current volume
-        max_volume = max(volume, max_volume)
-        if height[left] < height[right]:  # move toward the greater wall
-            left += 1
+        if height[left] <= height[right]:
+            area = height[left] * (right - left)
+            left += 1  # move toward the greater wall
         else:
-            right -= 1
-    return max_volume
+            area = height[right] * (right - left)
+            right -= 1  # move toward the greater wall
+
+        if area > max_area:
+            max_area = area
+
+    return max_area
 
 
 if __name__ == '__main__':
-    assert find_max_volume(height=[1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49
-    assert find_max_volume(height=[1, 1]) == 1
-    assert find_max_volume(height=[1, 0]) == 0
+    assert find_max_area(height=[1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49
+    assert find_max_area(height=[1, 1]) == 1
+    assert find_max_area(height=[1, 0]) == 0

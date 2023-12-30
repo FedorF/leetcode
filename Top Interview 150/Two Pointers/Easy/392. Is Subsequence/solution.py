@@ -2,23 +2,19 @@ def is_subseq(s: str, t: str) -> bool:
     """
     Two pointers approach: one for subseq, second one for the string itself.
 
-    Brute Force solution: O(len(t)).
+    Time complexity: O(len(t))
+    Space complexity: O(1)
 
     """
     if len(s) > len(t):
         return False
 
-    if len(s) == 0:
-        return True
-
-    i = j = 0
-    while (i < len(t)) and (j < len(s)):
-        if s[j] == t[i]:
-            if j == len(s)-1:
-                return True
+    j = i = 0
+    while j < len(s) and i < len(t):
+        if t[i] == s[j]:
             j += 1
         i += 1
-    return False
+    return j == len(s)
 
 
 if __name__ == '__main__':
