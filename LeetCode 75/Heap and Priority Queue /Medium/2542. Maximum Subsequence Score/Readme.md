@@ -40,3 +40,7 @@ n == nums1.length == nums2.length
 0 <= nums1[i], nums2[j] <= 10e5
 1 <= k <= n
 ```
+
+## Approach
+
+![img.png](img.png)
