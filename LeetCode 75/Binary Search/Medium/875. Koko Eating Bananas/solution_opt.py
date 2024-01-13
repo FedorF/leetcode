@@ -20,29 +20,29 @@ def calc_min_speed(piles: List[int], h: int) -> int:
     if h < len(piles):
         return -1
 
-    if h == len(piles):
-        return max(piles)
-
-    # apply binary search to reduce the complexity
+    # apply binary search to reduce time complexity
     left, right = 1, max(piles)
+    speed_min = right
     while left <= right:
         speed = left + (right - left) // 2
         total_hours = 0
         for pile in piles:
-            cur_hours = pile // speed
-            if pile % speed > 0:
-                cur_hours += 1
+            # calc time for processing current pile and add it to total time
+            total_hours += pile // speed
+            if pile % speed > 0:  # round up by 1 hour
+                total_hours += 1
 
-            total_hours += cur_hours
             if total_hours > h:
                 break
-
-        if total_hours > h:  # increase the speed
+        # increase speed
+        if total_hours > h:
             left = speed + 1
-        else:  # reduce the speed
+        # reduce speed
+        else:
+            speed_min = speed  # save current speed as current minimal
             right = speed - 1
 
-    return left
+    return speed_min
 
 
 if __name__ == '__main__':

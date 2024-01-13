@@ -1,20 +1,6 @@
 from typing import List
 
 
-def find_combinations(x: List[str], y: List[str]) -> List[str]:
-    """
-    Finds all possible combinations.
-
-    Time complexity: O(n*m)
-    Space complexity: O(n*m)
-    """
-    comb = []
-    for i in range(len(x)):
-        for j in range(len(y)):
-            comb.append(x[i] + y[j])
-    return comb
-
-
 def find_letter_combinations(digits: str) -> List[str]:
     """
     Finds all possible combinations recursively, by shrinking input digits by 1 element and processing the rest.
@@ -45,12 +31,17 @@ def find_letter_combinations(digits: str) -> List[str]:
     if len(digits) == 0:
         return []
 
-    def dfs(xs: str) -> List[str]:
-        if len(xs) == 1:
-            return keyboard[xs[0]]
-        return find_combinations(keyboard[xs[0]], dfs(xs[1:]))
+    def find_combinations(ind: int = 0) -> List[str]:
+        if ind == len(digits) - 1:
+            return keyboard[digits[ind]]
 
-    return dfs(digits)
+        comb = []
+        for x in keyboard[digits[ind]]:
+            for y in find_combinations(ind + 1):
+                comb.append(x + y)
+        return comb
+
+    return find_combinations()
 
 
 if __name__ == '__main__':
