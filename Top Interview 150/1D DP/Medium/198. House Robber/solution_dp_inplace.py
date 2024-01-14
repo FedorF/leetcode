@@ -3,17 +3,21 @@ from typing import List
 
 def calc_max_reward(nums: List[int]) -> int:
     """
-    DP approach. Same idea, but we don't change input array.
-    At each step we can either rob current house and take the reward1, or we can skip current.
+    Bottom-up DP approach. Changes input list in-place. (See details in Readme.md).
+    Use last two houses as base cases.
+    Start at last 3 house and calculate maximum reward at each step.
+    At the end compare rewards gotten from 1 and 2 positions.
 
     Time complexity: O(n)
     Space complexity: O(1)
     """
-    reward1, reward2 = 0, 0
-    # [reward1, reward2, cur_house, n+1, n+2, ...]
-    for cur_house in nums:
-        reward1, reward2 = reward2, max(cur_house + reward1, reward2)
-    return reward2
+    nums.append(0)  # add fake house with zero reward in order not to raise error in loop.
+    i = len(nums) - 4
+    while i >= 0:
+        nums[i] += max(nums[i + 2], nums[i + 3])
+        i -= 1
+
+    return max(nums[:2])
 
 
 if __name__ == '__main__':

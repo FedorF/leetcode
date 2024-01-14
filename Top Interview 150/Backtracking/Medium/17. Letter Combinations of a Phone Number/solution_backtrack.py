@@ -7,9 +7,6 @@ def find_letter_combinations(digits: str) -> List[str]:
     Space complexity: O(4^n)
 
     """
-    if len(digits) == 0:
-        return []
-
     keyboard = {
         "2": ["a", "b", "c"],
         "3": ["d", "e", "f"],
@@ -30,7 +27,9 @@ def find_letter_combinations(digits: str) -> List[str]:
             backtrack(ind + 1, comb + letter)
 
     res = []
-    backtrack()
+    if len(digits) > 0:
+        backtrack()
+
     return res
 
 
