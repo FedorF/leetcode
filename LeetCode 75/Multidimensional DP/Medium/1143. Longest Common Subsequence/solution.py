@@ -9,8 +9,11 @@ def calc_longest_common_subseq(x: str, y: str) -> int:
     dp = [[0] * (len(y) + 1) for _ in range(len(x) + 1)]
     for row in range(1, len(x) + 1):
         for col in range(1, len(y) + 1):
-            diag_score = int(x[row - 1] == y[col - 1]) + dp[row - 1][col - 1]
-            dp[row][col] = max(diag_score, dp[row - 1][col], dp[row][col - 1])
+            dp[row][col] = max(
+                dp[row - 1][col - 1] + int(x[row - 1] == y[col - 1]),
+                dp[row - 1][col],
+                dp[row][col - 1],
+            )
 
     return dp[-1][-1]
 
