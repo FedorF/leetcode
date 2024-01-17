@@ -35,3 +35,7 @@ Constraints:
 
 1 <= n <= 1000
 ```
+
+## DP Approach.
+
+![img_2.png](img_2.png)
