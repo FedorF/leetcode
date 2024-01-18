@@ -5,7 +5,7 @@ def calc_min_shots(balloons: List[List[int]]) -> int:
     """
     See Readme.md
 
-    Time complexity: O(n*log(n)) due to sorting
+    Time complexity: O(n * log(n)) due to sorting
     Space complexity: O(1)
     """
     balloons = sorted(balloons, key=lambda x: x[0])

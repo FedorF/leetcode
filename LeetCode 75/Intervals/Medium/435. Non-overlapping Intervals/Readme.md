@@ -32,3 +32,7 @@ Constraints:
 intervals[i].length == 2
 -5 * 10e4 <= starti < endi <= 5 * 10e4
 ```
+
+## Greedy approach.
+
+![img.png](img.png)
