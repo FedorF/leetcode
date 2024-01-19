@@ -7,6 +7,7 @@ def rotate_list(xs: List[int], k: int):
 
     Time complexity: O(k+n)
     Space complexity: O(1)
+
     """
     k %= len(xs)
     if k > 0 and len(xs) > 1:

@@ -3,14 +3,17 @@ from typing import List
 
 def rotate_list(xs: List[int], k: int) -> List[int]:
     """
-    Return new list version
+    Use slicing.
+
 
     Time complexity: O(N)
     Space complexity: O(N)
+
     """
     k %= len(xs)
     if k == 0:
         return xs
+
     return xs[-k:] + xs[:-k]
 
 

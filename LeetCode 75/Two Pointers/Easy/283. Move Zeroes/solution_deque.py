@@ -15,11 +15,10 @@ def move_zeros(nums: List[int]):
     for i in range(len(nums)):
         if nums[i] == 0:
             vacant_positions.append(i)
-        else:
-            if len(vacant_positions) > 0:
-                vacant = vacant_positions.popleft()
-                nums[vacant], nums[i] = nums[i], 0
-                vacant_positions.append(i)
+        elif len(vacant_positions) > 0:
+            vacant = vacant_positions.popleft()
+            nums[vacant], nums[i] = nums[i], 0
+            vacant_positions.append(i)
 
 
 if __name__ == '__main__':

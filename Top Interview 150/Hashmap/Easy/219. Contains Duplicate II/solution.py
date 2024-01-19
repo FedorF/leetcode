@@ -7,6 +7,7 @@ def contains_duplicates_nearby(nums: List[int], dist: int) -> bool:
 
     Time complexity: O(N)
     Space complexity: O(N)
+
     """
     if len(nums) <= 1:
         return False

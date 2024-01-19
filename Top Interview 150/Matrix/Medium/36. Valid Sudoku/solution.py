@@ -8,24 +8,30 @@ def is_valid_sudoku(board: List[List[str]]) -> bool:
 
     Time complexity: O(n^2)
     Space complexity: O(n^2)
+
     """
     rows, cols, boxes = {}, {}, {}
     for row in range(len(board)):
         if row not in rows:
             rows[row] = set()
+
         for col in range(len(board)):
             if col not in cols:
                 cols[col] = set()
+
             box = (row // 3, col // 3)
             if box not in boxes:
                 boxes[box] = set()
+
             element = board[row][col]
             if element.isalnum():
                 if (element in rows[row]) or (element in cols[col]) or (element in boxes[box]):
                     return False
+
                 rows[row].add(element)
                 cols[col].add(element)
                 boxes[box].add(element)
+
     return True
 
 
