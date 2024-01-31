@@ -1,6 +1,7 @@
 with users as (
     select distinct user_id from signups
-), agg as (
+),
+agg as (
     select
       a.user_id,
       sum(case when b.action = 'confirmed' then 1 else 0 end) confirmed,
