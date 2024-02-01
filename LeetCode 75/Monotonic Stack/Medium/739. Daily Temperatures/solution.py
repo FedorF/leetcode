@@ -5,7 +5,7 @@ def calc_days_to_warmer_temp(temperatures: List[int]) -> List[int]:
     """
     Stack approach.
     Define resulting list and fill it with zeros.
-    Define also stack and run through all days. Put a pair of (temp, index) in the stack.
+    Define stack and run through all days. Put a pair of (temp, index) in the stack.
     Compare last temperature value in stack with current day. If it's greater, pop element from
     stack, and add difference between current day's index and index from stack to resulting list.
 

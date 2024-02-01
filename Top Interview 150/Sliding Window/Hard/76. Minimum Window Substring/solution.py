@@ -12,7 +12,7 @@ def find_min_window_substr_len(s: str, t: str) -> str:
         return ""
 
     basis, used = {}, {}
-    for letter in t:  # initiate basis and used dictionaries
+    for letter in t:  # initiate "basis" and "used" counters
         if letter in basis:
             basis[letter] += 1
         else:

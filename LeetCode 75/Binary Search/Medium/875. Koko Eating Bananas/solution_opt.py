@@ -10,6 +10,7 @@ def calc_min_speed(piles: List[int], h: int) -> int:
         2) if h == len(piles), speed must be equal to max(piles), in order to be able to process all piles
         3) In order to reduce time complexity of this step, we can apply binary search here, instead of iterating
         through all possible values of speed.
+
         The minimum speed we should check is 1 and the maximum is max(piles).
 
 
