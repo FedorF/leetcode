@@ -1,4 +1,4 @@
--- better time performance
+-- Better time performance
 
 with a as (
     select
