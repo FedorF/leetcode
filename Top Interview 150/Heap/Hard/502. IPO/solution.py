@@ -11,8 +11,11 @@ def find_max_capital(k: int, w: int, profits: List[int], capital: List[int]) -> 
     After finishing cycle check if we have more projects to do, or we can't finish any of them because we don't have
     enough balance.
 
+
     Time complexity: O(n*log(n))
     Space complexity: O(N)
+
+
     """
     n = len(profits)
 

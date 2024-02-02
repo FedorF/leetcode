@@ -29,3 +29,6 @@ nums2.length == n
 1 <= m + n <= 2000
 -10e6 <= nums1[i], nums2[i] <= 10e6
 ```
+
+## Approach
+![img.png](img.png)
