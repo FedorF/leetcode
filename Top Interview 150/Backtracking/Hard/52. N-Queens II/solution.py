@@ -10,12 +10,12 @@ def calc_queens_combs(n: int) -> int:
     cols, diag, anti_diag = set(), set(), set()
 
     def place_queens(row: int = 0):
-        if row >= n:
+        if row >= n:  # all queens were placed
             nonlocal res
             res += 1
             return
 
-        for col in range(n):
+        for col in range(n):  # try all possible columns for current row
             if col not in cols and col - row not in diag and col + row not in anti_diag:
                 # attack current column and diagonals
                 cols.add(col)
