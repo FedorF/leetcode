@@ -12,7 +12,7 @@ def find_max_subarray_sum(xs: List[int]) -> int:
     """
     max_sum = cur_sum = xs[0]
     for i in range(1, len(xs)):
-        cur_sum = max(xs[i], cur_sum + xs[i])  # check if it's better to start new subarray
+        cur_sum = max(cur_sum + xs[i], xs[i])  # check if it's better to start new subarray
         max_sum = max(max_sum, cur_sum)
     return max_sum
 

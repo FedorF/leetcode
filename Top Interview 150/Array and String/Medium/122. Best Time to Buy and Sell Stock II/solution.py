@@ -2,6 +2,12 @@ from typing import List
 
 
 def calc_max_profit(prices: List[int]) -> int:
+    """
+
+    Time complexity: O(n)
+    Space complexity: O(1)
+
+    """
     profit = 0
     for i in range(len(prices) - 1):
         profit += max(0, prices[i + 1] - prices[i])

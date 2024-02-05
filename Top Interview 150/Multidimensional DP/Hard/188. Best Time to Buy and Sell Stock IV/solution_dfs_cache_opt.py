@@ -14,18 +14,23 @@ def calc_max_profit(k: int, prices: List[int]) -> int:
     cache = {}
 
     def trade(has_stock: bool = False, day: int = 0, transact_cnt: int = k) -> int:
+        key = (has_stock, day, transact_cnt)
+        if key in cache:
+            return cache[key]
+
         if transact_cnt == 0 or day >= len(prices):
             return 0
 
         sell = buy = 0
         if has_stock:
-            sell = prices[day] + trade(has_stock=False, day=day + 1, transact_cnt=transact_cnt - 1)
+            sell = prices[day] + trade(False, day + 1, transact_cnt - 1)
         else:
-            buy = -prices[day] + trade(has_stock=True, day=day + 1, transact_cnt=transact_cnt)
-        keep = trade(has_stock=has_stock, day=day + 1, transact_cnt=transact_cnt)
+            buy = -prices[day] + trade(True, day + 1, transact_cnt)
 
-        cache[(has_stock, day, transact_cnt)] = max(sell, buy, keep)
-        return cache[(has_stock, day, transact_cnt)]
+        keep = trade(has_stock, day + 1, transact_cnt)
+
+        cache[key] = max(sell, buy, keep)
+        return cache[key]
 
     return trade()
 

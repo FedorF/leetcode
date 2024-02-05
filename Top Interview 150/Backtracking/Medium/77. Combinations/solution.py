@@ -18,11 +18,12 @@ def find_combinations_in_range(n: int, k: int) -> List[List[int]]:
     def backtrack(comb: List[int], start: int = 1):
         if len(comb) == k:
             res.append(comb[:])
-        else:
-            for i in range(start, n + 1):
-                comb.append(i)
-                backtrack(comb, i + 1)
-                comb.pop()
+            return
+
+        for i in range(start, n + 1):
+            comb.append(i)
+            backtrack(comb, i + 1)
+            comb.pop()
 
     backtrack([])
     return res
