@@ -8,6 +8,13 @@ class ListNode:
 
 
 def find_middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
+    """
+
+    Time complexity: O(n)
+    Space complexity: O(n)
+
+    """
+
     if head is None:
         return None
 

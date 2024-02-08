@@ -31,3 +31,6 @@ Constraints:
 0 <= arr[i] <= 10e9
 1 <= k <= arr.length
 ```
+
+## Memoization approach
+![img.png](img.png)
