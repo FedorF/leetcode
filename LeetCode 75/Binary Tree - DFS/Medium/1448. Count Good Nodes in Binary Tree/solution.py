@@ -51,39 +51,45 @@ def build_tree(xs: List[int]) -> Optional[TreeNode]:
     return tree
 
 
-def calc_tree_depth(tree: Optional[TreeNode]) -> int:
+def count_good_nodes(root: Optional[TreeNode]) -> int:
     """
+    DFS approach.
 
-    Time complexity: O(n)
+
+    Time complexity: O(n_nodes)
     Space complexity: O(1)
 
     """
-    if tree is None:
-        return 0
 
-    def dfs(root: TreeNode = tree, level: int = 0):
-        if root is None:
-            nonlocal depth
-            depth = max(depth, level)
+    def dfs(tree: TreeNode, path_max_val: int):
+        nonlocal counter
+        if tree is None:
             return
 
-        dfs(root.left, level + 1)
-        dfs(root.right, level + 1)
+        if tree.left is None and tree.right is None:  # found leaf
+            if tree.val >= path_max_val:
+                counter += 1
+            return
 
-    depth = 1
-    dfs()
-    return depth
+        if tree.val >= path_max_val:
+            path_max_val = tree.val
+            counter += 1
+
+        dfs(tree.left, path_max_val)
+        dfs(tree.right, path_max_val)
+        return
+
+    counter = 0
+    dfs(root, root.val)
+    return counter
 
 
 if __name__ == '__main__':
-    actual, expected = calc_tree_depth(build_tree([3, 9, 20, None, None, 15, 7])), 3
+    actual, expected = count_good_nodes(build_tree([3, 1, 4, 3, None, 1, 5])), 4
     assert actual == expected, f"expected: {expected}, actual: {actual}"
 
-    actual, expected = calc_tree_depth(build_tree([1, None, 2])), 2
+    actual, expected = count_good_nodes(build_tree([3, 3, None, 4, 2])), 3
     assert actual == expected, f"expected: {expected}, actual: {actual}"
 
-    actual, expected = calc_tree_depth(build_tree([1])), 1
-    assert actual == expected, f"expected: {expected}, actual: {actual}"
-
-    actual, expected = calc_tree_depth(build_tree([])), 0
+    actual, expected = count_good_nodes(build_tree([1])), 1
     assert actual == expected, f"expected: {expected}, actual: {actual}"

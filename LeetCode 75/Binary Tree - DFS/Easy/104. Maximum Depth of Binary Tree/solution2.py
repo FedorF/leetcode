@@ -34,23 +34,6 @@ class TreeNode:
         return xs
 
 
-def calc_tree_depth(tree: Optional[TreeNode]) -> int:
-    """
-
-    Time complexity: O(n)
-    Space complexity: O(1)
-
-    """
-
-    def dfs(root: Optional[TreeNode] = tree, depth: int = 0) -> int:
-        if not root:
-            return depth
-
-        return max(dfs(root.left, depth + 1), dfs(root.right, depth + 1))
-
-    return dfs()
-
-
 def build_tree(xs: List[int]) -> Optional[TreeNode]:
     if not xs:
         return
@@ -66,6 +49,23 @@ def build_tree(xs: List[int]) -> Optional[TreeNode]:
 
     tree = build()
     return tree
+
+
+def calc_tree_depth(tree: Optional[TreeNode]) -> int:
+    """
+
+    Time complexity: O(n)
+    Space complexity: O(1)
+
+    """
+
+    def dfs(root: Optional[TreeNode] = tree, depth: int = 0) -> int:
+        if not root:
+            return depth
+
+        return max(dfs(root.left, depth + 1), dfs(root.right, depth + 1))
+
+    return dfs()
 
 
 if __name__ == '__main__':

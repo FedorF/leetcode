@@ -35,7 +35,7 @@ class TreeNode:
 
 
 def build_tree(xs: List[int]) -> Optional[TreeNode]:
-    if not xs:
+    if len(xs) == 0:
         return
 
     def build(ind: int = 0) -> TreeNode:
@@ -51,39 +51,35 @@ def build_tree(xs: List[int]) -> Optional[TreeNode]:
     return tree
 
 
-def calc_tree_depth(tree: Optional[TreeNode]) -> int:
+def find_longest_zigzag_length(root: Optional[TreeNode]) -> int:
     """
 
-    Time complexity: O(n)
+    Time complexity: O()
     Space complexity: O(1)
 
     """
-    if tree is None:
-        return 0
 
-    def dfs(root: TreeNode = tree, level: int = 0):
-        if root is None:
-            nonlocal depth
-            depth = max(depth, level)
-            return
+    def dfs(tree: TreeNode, left: int = 0, right: int = 0):
+        nonlocal max_length
+        max_length = max(max_length, left, right)
+        if tree.left:
+            dfs(tree.left, right + 1, 0)
+        if tree.right:
+            dfs(tree.right, 0, left + 1)
 
-        dfs(root.left, level + 1)
-        dfs(root.right, level + 1)
-
-    depth = 1
-    dfs()
-    return depth
+    max_length = 0
+    dfs(root)
+    return max_length
 
 
 if __name__ == '__main__':
-    actual, expected = calc_tree_depth(build_tree([3, 9, 20, None, None, 15, 7])), 3
+    tree = build_tree([1, 1, 1, None, 1, None, None, 1, 1, None, 1])
+    actual, expected = find_longest_zigzag_length(tree), 4
     assert actual == expected, f"expected: {expected}, actual: {actual}"
 
-    actual, expected = calc_tree_depth(build_tree([1, None, 2])), 2
+    tree = build_tree([1, None, 1, 1, 1, None, None, 1, 1, None, 1, None, None, None, 1])
+    actual, expected = find_longest_zigzag_length(tree), 3
     assert actual == expected, f"expected: {expected}, actual: {actual}"
 
-    actual, expected = calc_tree_depth(build_tree([1])), 1
-    assert actual == expected, f"expected: {expected}, actual: {actual}"
-
-    actual, expected = calc_tree_depth(build_tree([])), 0
+    actual, expected = find_longest_zigzag_length(build_tree([1])), 0
     assert actual == expected, f"expected: {expected}, actual: {actual}"

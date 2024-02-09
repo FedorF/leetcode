@@ -34,6 +34,23 @@ class TreeNode:
         return xs
 
 
+def build_tree(xs: List[int]) -> Optional[TreeNode]:
+    if not xs:
+        return
+
+    def build(ind: int = 0) -> TreeNode:
+        if ind >= len(xs) or xs[ind] is None:
+            return
+
+        node = TreeNode(xs[ind])
+        node.left = build(2 * ind + 1)
+        node.right = build(2 * ind + 2)
+        return node
+
+    tree = build()
+    return tree
+
+
 def leaf_equal(xs: Optional[TreeNode], ys: Optional[TreeNode]) -> bool:
     """
 
@@ -60,23 +77,6 @@ def leaf_equal(xs: Optional[TreeNode], ys: Optional[TreeNode]) -> bool:
             return False
 
     return True
-
-
-def build_tree(xs: List[int]) -> Optional[TreeNode]:
-    if not xs:
-        return
-
-    def build(ind: int = 0) -> TreeNode:
-        if ind >= len(xs) or xs[ind] is None:
-            return
-
-        node = TreeNode(xs[ind])
-        node.left = build(2 * ind + 1)
-        node.right = build(2 * ind + 2)
-        return node
-
-    tree = build()
-    return tree
 
 
 if __name__ == '__main__':
