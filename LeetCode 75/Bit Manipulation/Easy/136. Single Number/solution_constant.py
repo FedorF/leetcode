@@ -5,10 +5,29 @@ def find_single_number(nums: List[int]) -> int:
     """
     Bit manipulation approach.
 
-    XOR of any two num gives the difference of bit as 1 and same bit as 0.
-    Thus, using this we get 1 ^ 1 == 0 because the same numbers have same bits.
-    So, we will always get the single element because all the same ones will evaluate to 0
-    and 0 ^ single_number = single_number.
+    The idea is to apply XOR bitwise operation.
+    XOR has properties:
+    1) a XOR a = 0
+    2) a XOR 0 = a
+    3) A^A^B = B^A^A = A^B^A = B  (position doesn't matter)
+
+    Therefore, a^a^a......... (even times) = 0 and a^a^a........(odd times) = a
+
+
+    For example,
+
+    decimal = 21  =>  binary = 10101
+    21 XOR 21   =>  10101
+                    10101
+                    -----
+                    00000   =>  equal to 0
+
+    21 XOR 0   =>  10101
+                   00000
+                   -----
+                   10101   => equals to 21
+
+    So, applying XOR operation to all values in nums, we'll always get single number in the end.
 
 
     Time complexity: O(n)
