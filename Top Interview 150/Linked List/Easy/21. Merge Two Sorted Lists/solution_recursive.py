@@ -33,12 +33,11 @@ def build_list_node(nodes: List[float]) -> Optional[ListNode]:
 
 def merge_lists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
     """
-    Refactored version for a clear understanding.
 
-    Let's define new ListNode and fill it sequentially in recursive loop.
 
-    Time complexity O(m+n)
-    Space complexity O(m+n)
+    Time complexity O(n)
+    Space complexity O(1)
+
     """
     if not list1 or not list2:
         return list1 or list2
@@ -46,15 +45,13 @@ def merge_lists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optiona
     if list1.val <= list2.val:
         list1.next = merge_lists(list1.next, list2)
         return list1
+
     else:
         list2.next = merge_lists(list1, list2.next)
         return list2
 
 
 if __name__ == '__main__':
-    a = merge_lists(build_list_node([]), build_list_node([]))
-    print(a)
-
     list1 = build_list_node([1, 2, 4])
     list2 = build_list_node([1, 3, 4])
     actual = merge_lists(list1, list2)

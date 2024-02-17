@@ -31,40 +31,47 @@ def build_list_node(nodes: List[float]) -> Optional[ListNode]:
     return build_node()
 
 
-def merge_lists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+def merge_lists(xs: Optional[ListNode], ys: Optional[ListNode]) -> Optional[ListNode]:
     """
-    Let's define a new ListNode and fill it sequentially in recursive loop.
 
-    Time complexity O(m+n)
-    Space complexity O(m+n)
+
+    Time complexity O(n)
+    Space complexity O(1)
+
     """
-    merged = None
-    if list1 and list2:
-        if list1.val < list2.val:
-            if merged:
-                merged.val = list1.val
-            else:
-                merged = ListNode(list1.val)
-            merged.next = merge_lists(list1.next, list2)
+    if not xs:
+        return ys
+
+    if not ys:
+        return xs
+
+    if xs.val < ys.val:
+        head = prev = xs
+        xs = xs.next
+    else:
+        head = prev = ys
+        ys = ys.next
+
+    while xs or ys:
+        if not xs:
+            prev.next = ys
+            ys = ys.next
+
+        elif not ys:
+            prev.next = xs
+            xs = xs.next
+
+        elif xs.val < ys.val:
+            prev.next = xs
+            xs = xs.next
+
         else:
-            if merged:
-                merged.val = list2.val
-            else:
-                merged = ListNode(list2.val)
-            merged.next = merge_lists(list2.next, list1)
-    elif list1:
-        if merged:
-            merged.val = list1.val
-        else:
-            merged = ListNode(list1.val)
-        merged.next = list1.next
-    elif list2:
-        if merged:
-            merged.val = list2.val
-        else:
-            merged = ListNode(list2.val)
-        merged.next = list2.next
-    return merged
+            prev.next = ys
+            ys = ys.next
+
+        prev = prev.next
+
+    return head
 
 
 if __name__ == '__main__':
