@@ -1,4 +1,4 @@
-def reverse_bit(n: int) -> int:
+def calc_hamming_weight(n: int) -> int:
     """
 
     Time complexity: O(1)
@@ -6,10 +6,9 @@ def reverse_bit(n: int) -> int:
 
     """
     n = format(n, "032b")
-    out = 0
-    power = 0
+    cnt = 0
     for x in n:  # traverse through 32 bits
-        out += int(x) * (2 ** power)
-        power += 1
+        if x == "1":
+            cnt += 1
 
-    return out
+    return cnt
