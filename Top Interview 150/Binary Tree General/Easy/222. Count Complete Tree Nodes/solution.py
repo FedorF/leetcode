@@ -27,13 +27,43 @@ def build_tree(xs: List[int]) -> Optional[TreeNode]:
 
 def count_nodes(root: Optional[TreeNode]) -> int:
     """
-    DFS Approach.
+    DFS Approach:
+
+    If left sub-tree height equals right sub-tree height then,
+        a. left sub-tree is perfect binary tree
+        b. right sub-tree is complete binary tree
+
+    If left sub-tree height greater than right sub-tree height then,
+        a. left sub-tree is complete binary tree
+        b. right sub-tree is perfect binary tree
 
 
-    Time complexity: O()
-    Space complexity: O()
+    Time complexity: O(log(n) ^ 2)
+    Space complexity: O(1)
 
     """
+    if not root:
+        return 0
+
+    def calc_depth_right(node: TreeNode, level: int = 0):
+        if not node:
+            return level
+
+        return calc_depth_right(node.right, level + 1)
+
+    def calc_depth_left(node: TreeNode, level: int = 0):
+        if not node:
+            return level
+
+        return calc_depth_left(node.left, level + 1)
+
+    left_depth = calc_depth_left(root.left)
+    right_depth = calc_depth_right(root.right)
+
+    if left_depth == right_depth:
+        return 2 ** (left_depth + 1) - 1
+
+    return 1 + count_nodes(root.left) + count_nodes(root.right)
 
 
 if __name__ == '__main__':
