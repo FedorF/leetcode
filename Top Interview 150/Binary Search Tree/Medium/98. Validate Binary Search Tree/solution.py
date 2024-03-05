@@ -25,7 +25,7 @@ def build_tree(xs: List[int]) -> Optional[TreeNode]:
     return tree
 
 
-def is_symmetric(root: Optional[TreeNode]) -> bool:
+def validate_binary_search_tree(root: Optional[TreeNode]) -> bool:
     """
     DFS Approach.
 
@@ -34,30 +34,28 @@ def is_symmetric(root: Optional[TreeNode]) -> bool:
     Space complexity: O(1)
 
     """
-    if not root:
-        return True
 
-    def dfs(left_node: TreeNode, right_node: TreeNode) -> bool:
-        if not left_node and not right_node:
+    def dfs(node: TreeNode, min_val: Optional[int] = None, max_val: Optional[int] = None) -> bool:
+        if not node:
             return True
 
-        if not left_node and right_node:
+        if (max_val is not None) and (node.val >= max_val):
             return False
 
-        if left_node and not right_node:
+        if (min_val is not None) and (node.val <= min_val):
             return False
 
-        if left_node.val != right_node.val:
+        if not dfs(node.left, min_val, node.val):  # check left sub-tree
             return False
 
-        return dfs(left_node.left, right_node.right) and dfs(right_node.left, left_node.right)
+        return dfs(node.right, node.val, max_val)  # check right sub-tree
 
-    return dfs(root.left, root.right)
+    return dfs(root)
 
 
 if __name__ == '__main__':
-    actual, expected = is_symmetric(build_tree([1, 2, 2, 3, 4, 4, 3])), True
+    actual, expected = validate_binary_search_tree(build_tree([2, 1, 3])), True
     assert actual == expected, f"expected: {expected}, actual: {actual}"
 
-    actual, expected = is_symmetric(build_tree([1, 2, 2, None, 3, None, 3])), False
+    actual, expected = validate_binary_search_tree(build_tree([5, 1, 4, None, None, 3, 6])), False
     assert actual == expected, f"expected: {expected}, actual: {actual}"
