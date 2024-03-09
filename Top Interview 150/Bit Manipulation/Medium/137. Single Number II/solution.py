@@ -8,7 +8,14 @@ def find_single_number(nums: List[int]) -> int:
     Time Complexity: O(1)
 
     """
-    # todo
+    ones = 0
+    twos = 0
+
+    for num in nums:
+        ones ^= (num & ~twos)
+        twos ^= (num & ~ones)
+
+    return ones
 
 
 if __name__ == '__main__':
