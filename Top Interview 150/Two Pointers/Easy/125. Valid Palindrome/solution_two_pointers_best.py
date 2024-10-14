@@ -4,6 +4,7 @@ def check_palindrome(s: str) -> bool:
 
     Time complexity: O(n)
     Space complexity: O(1)
+
     """
     left = 0
     right = len(s) - 1
